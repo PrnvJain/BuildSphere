@@ -134,7 +134,7 @@ export const addVerifyElement = (
           containerId: id,
           elementDetails: {
             content: {
-              src: "https://www.youtube.com/embed/so1_VXaGqmM?si=2lBxVOuA57XMv0JX",
+              src: "https://www.youtube.com/embed/I-j_SMn8RRc?si=dLu3i_SxjfHnEKhw",
             },
             id: uuidv4(),
             name: "Video",

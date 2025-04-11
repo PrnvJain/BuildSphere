@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { AlertDialog } from "@/components/ui/alert-dialog";
+
 
 import { deletePipeline, upsertPipeline } from "@/queries/pipelines";
 import { saveActivityLogsNotification } from "@/queries/notifications";
@@ -153,27 +155,30 @@ const PipelineDetails: React.FC<PipelineDetailsProps> = ({
               >
                 Save
               </Button>
-              <AlertDialogTrigger asChild>
-                <Button variant="destructive">Delete Pipeline</Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete
-                    thiss pipeline and all related records.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter className="items-center">
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction
-                    className="bg-destructive hover:bg-destructive"
-                    onClick={handleDelete}
-                  >
-                    Delete
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant="destructive">Delete Pipeline</Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete this
+                      pipeline and all related records.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter className="items-center">
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction
+                      className="bg-destructive hover:bg-destructive"
+                      onClick={handleDelete}
+                    >
+                      Delete
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+
             </div>
           </form>
         </Form>
